@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const  LoginSignup = () =>{
-    return(
-<div>
-    
-</div>
+const LoginSignup = () => {
+    return (
+        <div className='loginsignup'>
+
+        </div>
     )
 }
 
