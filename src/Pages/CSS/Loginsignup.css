@@ -32,7 +32,7 @@
     font-size: 18px;
 
 }
-.loginsignup-container button{
+/* .loginsignup-container button{
     height: 72px;
     width: 580px;
     border: none;
@@ -43,6 +43,32 @@
     background: #ff4141;
     margin-top: 30px;
     cursor: pointer;
+} */
+
+.loginsignup-container button {
+    height: 72px;
+    width: 580px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    background: #ff4141;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Change background color on hover */
+.loginsignup-container button:hover {
+    background: #e63a3a; /* Slightly darker red */
+    transform: scale(1.02); /* Slight zoom effect */
+}
+
+/* Change background color and add effect on click */
+.loginsignup-container button:active {
+    background: #cc3333; /* Even darker red */
+    transform: scale(0.98); /* Slight press-down effect */
 }
 .loginsignup-login{
     margin-top: 20px;

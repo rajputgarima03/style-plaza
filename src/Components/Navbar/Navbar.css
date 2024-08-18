@@ -47,7 +47,7 @@
     gap:45px
 }
 
-.nav-login-cart button{
+.nav-login-cart button {
     outline: none;
     height: 58px;
     width: 157px;
@@ -58,9 +58,18 @@
     font-weight: 500;
     background: white;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
 }
-.nav-login-cart button:active{
+
+.nav-login-cart button:hover {
+    background: #f9f9f9; 
+    border-color: #515151;
+    transform: scale(1.05); 
+}
+
+.nav-login-cart button:active {
     background: #f3f3f3;
+    transform: scale(0.98); 
 }
 .nav-cart-count{
     width: 22px;
@@ -75,3 +84,16 @@
     background: red;
     color: white;
 }
+.nav-login-cart img {
+    width: 40px;
+    height: 40px; 
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-login-cart img:hover {
+    transform: scale(1.05); 
+}
+
+.nav-login-cart img:active {
+    transform: scale(0.98); }
