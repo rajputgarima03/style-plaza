@@ -41,7 +41,7 @@ const LoginSignup = () => {
     }
 
     const userData = {
-      id: generateRandomId().toString(),
+      id: generateRandomId(),
       name,
       email,
       password
@@ -93,14 +93,14 @@ const LoginSignup = () => {
         },
         body: JSON.stringify(userData)
       });
-      console.log("--------respoons", response)
       // const data = await response.json();
       if (!response.ok) {
         throw new Error('Failed to sign up');
       }
       const result = await response.text(); 
-      console.log("--------",result === true)
-      if(result === true) {
+      console.log("the response is ",result)
+      console.log("--------",result === 'true')
+      if(result === 'true') {
         setSuccess('Login successful!'); 
         setError(null); 
         setTimeout(() => {
