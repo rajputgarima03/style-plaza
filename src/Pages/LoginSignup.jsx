@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./CSS/Loginsignup.css";
 import { useNavigate } from 'react-router-dom';
-
+import { envUrl } from "../Utils/env";
+import config from '../Utils/config.json'
 const LoginSignup = () => {
   const navigate = useNavigate();
   const [pageType, setPageType] = useState("signup"); // default value signup
@@ -47,7 +48,7 @@ const LoginSignup = () => {
     };
 
     try {
-      const response = await fetch('http://192.168.29.20:8080/user/signup', {
+      const response = await fetch(envUrl()+ config['signup'], {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -85,7 +86,7 @@ const LoginSignup = () => {
     };
 
     try {
-      const response = await fetch('http://192.168.29.20:8080/user/login', {
+      const response = await fetch(envUrl()+ config['login'], {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -97,10 +98,17 @@ const LoginSignup = () => {
       if (!response.ok) {
         throw new Error('Failed to sign up');
       }
-      else {
+      const result = await response.text(); 
+      console.log("--------",result === true)
+      if(result === true) {
         setSuccess('Login successful!'); 
-        setError(null); // Clear any previous errors
-        navigate('/')
+        setError(null); 
+        setTimeout(() => {
+          navigate('/'); // Navigate to the home page
+        }, 2000); 
+      }
+      else{
+        setError('Incorrect Email Id or Password. Please try again.');
       }
 
     } catch (error) {
@@ -140,6 +148,9 @@ const LoginSignup = () => {
     return (
       <div className="loginsignup">
         <div className="loginsignup-container">
+            {/* Display Error or Success Message */}
+            {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
+          {success && <p className="success-message" style={{ color: 'green' }}>{success}</p>}
           <h1>Login</h1>
           <div className="loginsignup-fields">
             <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} />

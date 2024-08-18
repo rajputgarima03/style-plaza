@@ -5,6 +5,8 @@ import NewsLetter from '../Components/NewsLetter/NewsLetter';
 import Offer from '../Components/Offer/Offer';
 import Popular from '../Components/Popular/Popular';
 import { ShopContext } from '../Context/ShopContext';
+import { envUrl } from '../Utils/env';
+import  config  from '../Utils/config.json';
 import { makeBearerTokenHeader, makeGetApiInvoke } from '../Utils/services';
 
 
@@ -14,7 +16,7 @@ const Shop = () => {
     const [error, setError] = useState(false); 
     const fetchAllProducts = async ()=>{
         try{
-            const response = await fetch ('http://192.168.29.20:8080/products');
+            const response = await fetch (envUrl() + config['products']);
             const data = await response.json();
             if(data){
                 setProducts(data); 

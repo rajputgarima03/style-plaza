@@ -1,0 +1,6 @@
+{
+    "products" : "products",
+    "signup" : "user/signup",
+    "login" : "user/login"
+
+}
