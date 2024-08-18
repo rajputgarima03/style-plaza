@@ -1,6 +1,7 @@
 {
     "products" : "products",
     "signup" : "user/signup",
-    "login" : "user/login"
+    "login" : "user/login",
+    "category" : "products/category"
 
 }
